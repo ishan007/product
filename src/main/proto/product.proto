@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.product";
+option java_outer_classname = "ProductProto";
+
+package product;
+
+
+service ProductService {
+  rpc placeOrder (ProductRequest) returns (ProductResponse);
+  rpc updateOrder (ProductRequest) returns (ProductResponse);
+}
+
+
+message ProductRequest {
+  string product = 1;
+}
+
+
+message ProductResponse {
+  string msg = 1;
+  repeated string products = 2;
+}
